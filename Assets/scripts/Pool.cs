@@ -18,6 +18,11 @@ public class Pool : MonoBehaviour
     private Vector3[] arrayVectores;
     private int random;
 
+    // Variables para el temporizador
+
+    private float incrementadorDeTiempo = 0f;
+    //private float duracionDeRonda = 30f;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -45,7 +50,13 @@ public class Pool : MonoBehaviour
     private void Update()
     {
         random = Random.Range(0, 4);
-        burbujasActive();
+
+        incrementadorDeTiempo += Time.deltaTime;
+        if (incrementadorDeTiempo > 1)
+        {
+            burbujasActive();
+            incrementadorDeTiempo = 0;
+        }
     }
 
     public void burbujasActive()
@@ -73,9 +84,6 @@ public class Pool : MonoBehaviour
 
             burbujasArray[burbujasArrayIndice].GetComponent<Rigidbody2D>().AddForce(Vector3.right * burbujasVelocity);
             burbujasArray[burbujasArrayIndice].GetComponent<Rigidbody2D>().AddForce(Vector3.down * burbujasVelocity);
-
-            //burbujasArray[burbujasArrayIndice].transform.Translate(Vector3.right * burbujasVelocity * Time.deltaTime);
-            //burbujasArray[burbujasArrayIndice].transform.Translate(Vector3.down * burbujasVelocity * Time.deltaTime);
         }
         else if (burbujasArray[burbujasArrayIndice].transform.position.Equals(arrayVectores[1]))
         {
@@ -83,9 +91,6 @@ public class Pool : MonoBehaviour
 
             burbujasArray[burbujasArrayIndice].GetComponent<Rigidbody2D>().AddForce(Vector3.left * burbujasVelocity);
             burbujasArray[burbujasArrayIndice].GetComponent<Rigidbody2D>().AddForce(Vector3.down * burbujasVelocity);
-
-            //burbujasArray[burbujasArrayIndice].transform.Translate(Vector3.left * burbujasVelocity * Time.deltaTime);
-            //burbujasArray[burbujasArrayIndice].transform.Translate(Vector3.down * burbujasVelocity * Time.deltaTime);
         }
         else if (burbujasArray[burbujasArrayIndice].transform.position.Equals(arrayVectores[2]))
         {
@@ -93,9 +98,6 @@ public class Pool : MonoBehaviour
 
             burbujasArray[burbujasArrayIndice].GetComponent<Rigidbody2D>().AddForce(Vector3.right * burbujasVelocity);
             burbujasArray[burbujasArrayIndice].GetComponent<Rigidbody2D>().AddForce(Vector3.up * burbujasVelocity);
-
-            //burbujasArray[burbujasArrayIndice].transform.Translate(Vector3.right * burbujasVelocity * Time.deltaTime);
-            //burbujasArray[burbujasArrayIndice].transform.Translate(Vector3.up * burbujasVelocity * Time.deltaTime);
         }
         else if (burbujasArray[burbujasArrayIndice].transform.position.Equals(arrayVectores[3]))
         {
@@ -103,9 +105,6 @@ public class Pool : MonoBehaviour
 
             burbujasArray[burbujasArrayIndice].GetComponent<Rigidbody2D>().AddForce(Vector3.left * burbujasVelocity);
             burbujasArray[burbujasArrayIndice].GetComponent<Rigidbody2D>().AddForce(Vector3.up * burbujasVelocity);
-
-            //burbujasArray[burbujasArrayIndice].transform.Translate(Vector3.left * burbujasVelocity * Time.deltaTime);
-            //burbujasArray[burbujasArrayIndice].transform.Translate(Vector3.up * burbujasVelocity * Time.deltaTime);
         }
     }
 }
