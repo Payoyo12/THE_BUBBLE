@@ -21,6 +21,7 @@ public class Pool : MonoBehaviour
     // Variables para el temporizador
 
     private float incrementadorDeTiempo = 0f;
+
     //private float duracionDeRonda = 30f;
 
     // Start is called before the first frame update
@@ -80,28 +81,28 @@ public class Pool : MonoBehaviour
 
         if (burbujasArray[burbujasArrayIndice].transform.position.Equals(arrayVectores[0]))
         {
-            Debug.Log("0");
+            //Debug.Log("0");
 
             burbujasArray[burbujasArrayIndice].GetComponent<Rigidbody2D>().AddForce(Vector3.right * burbujasVelocity);
             burbujasArray[burbujasArrayIndice].GetComponent<Rigidbody2D>().AddForce(Vector3.down * burbujasVelocity);
         }
         else if (burbujasArray[burbujasArrayIndice].transform.position.Equals(arrayVectores[1]))
         {
-            Debug.Log("1");
+            //Debug.Log("1");
 
             burbujasArray[burbujasArrayIndice].GetComponent<Rigidbody2D>().AddForce(Vector3.left * burbujasVelocity);
             burbujasArray[burbujasArrayIndice].GetComponent<Rigidbody2D>().AddForce(Vector3.down * burbujasVelocity);
         }
         else if (burbujasArray[burbujasArrayIndice].transform.position.Equals(arrayVectores[2]))
         {
-            Debug.Log("2");
+            //Debug.Log("2");
 
             burbujasArray[burbujasArrayIndice].GetComponent<Rigidbody2D>().AddForce(Vector3.right * burbujasVelocity);
             burbujasArray[burbujasArrayIndice].GetComponent<Rigidbody2D>().AddForce(Vector3.up * burbujasVelocity);
         }
         else if (burbujasArray[burbujasArrayIndice].transform.position.Equals(arrayVectores[3]))
         {
-            Debug.Log("3");
+            //Debug.Log("3");
 
             burbujasArray[burbujasArrayIndice].GetComponent<Rigidbody2D>().AddForce(Vector3.left * burbujasVelocity);
             burbujasArray[burbujasArrayIndice].GetComponent<Rigidbody2D>().AddForce(Vector3.up * burbujasVelocity);
