@@ -54,14 +54,14 @@ public class Burbujas : MonoBehaviour
 
         if (burbujaVida == 0)
         {
-            gameManager.GetComponent<GameManager>().puntuacionMaxima++;
+            gameManager.GetComponent<GameManager>().puntuacion++;
             gameObject.SetActive(false);
             //Debug.Log("gg");
         }
 
         if (burbujaDoradaVida == 0)
         {
-            gameManager.GetComponent<GameManager>().puntuacionMaxima += 3;
+            gameManager.GetComponent<GameManager>().puntuacion += 3;
             gameObject.SetActive(false);
             //Debug.Log("gg");
         }
