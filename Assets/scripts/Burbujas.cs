@@ -19,12 +19,4 @@ public class Burbujas : MonoBehaviour
         gameObject.SetActive(false);
         //Debug.Log("gg");
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "pared")
-        {
-            gameObject.SetActive(false);
-        }
-    }
 }

@@ -12,6 +12,12 @@ public class Pool : MonoBehaviour
     private int burbujasArrayIndice = -1;   // Indice de la posicion del array (indica la bala a activar)
     private float burbujasVelocity = 200;
 
+    public GameObject burbujasDoradas;       // Referencia prefab a instanciar
+    private GameObject[] burbujasDoradasArray;   // Array de objetos a reciclar (piscina de objetos)
+    private int burbujasDoradasArraySize = 2; // Tamanyo del array
+    private int burbujasDoradasArrayIndice = -1;   // Indice de la posicion del array (indica la bala a activar)
+    private float burbujasDoradasVelocity = 200;
+    private int randomAparicion;    //momento en el que aparecera la burbujaDorada
     //vectores aleatorios
 
     private int arrayVectoresSize = 4;
@@ -36,6 +42,16 @@ public class Pool : MonoBehaviour
             burbujasArray[i].SetActive(false);
         }
 
+        burbujasDoradasArray = new GameObject[burbujasDoradasArraySize]; // Creamos la array con un tamaño igual al de la variable int primera
+        for (int i = 0; i < burbujasDoradasArraySize; i++)// Creamos todas las balas, las colocamos como hijas de este gameobject y las desactivamos
+        {
+            burbujasDoradasArray[i] = Instantiate(burbujasDoradas, transform.position, Quaternion.identity);
+            burbujasDoradasArray[i].transform.parent = gameObject.transform;
+            burbujasDoradasArray[i].SetActive(false);
+        }
+
+        randomAparicion = Random.Range(0, 100);
+
         ////vectores aleatorios
         arrayVectores = new Vector3[arrayVectoresSize]; // Creamos la array con un tamaño igual al de la variable int primera
 
@@ -57,6 +73,13 @@ public class Pool : MonoBehaviour
         {
             burbujasActive();
             incrementadorDeTiempo = 0;
+        }
+
+        randomAparicion = Random.Range(0, 10000);
+
+        if (randomAparicion == 20)
+        {
+            burbujasDoradasActive();
         }
     }
 
@@ -106,6 +129,57 @@ public class Pool : MonoBehaviour
 
             burbujasArray[burbujasArrayIndice].GetComponent<Rigidbody2D>().AddForce(Vector3.left * burbujasVelocity);
             burbujasArray[burbujasArrayIndice].GetComponent<Rigidbody2D>().AddForce(Vector3.up * burbujasVelocity);
+        }
+    }
+
+    //metodo movimiento
+
+    public void burbujasDoradasActive()
+    {
+        burbujasDoradasArrayIndice++; // Tras diparar pasamos a la siguiente bala
+
+        // Si nos salimos del rango del array, volvemos a cero.
+        if (burbujasDoradasArrayIndice >= burbujasDoradasArraySize)
+        {
+            burbujasDoradasArrayIndice = 0;
+        }
+
+        if (burbujasDoradasArray[burbujasDoradasArrayIndice].activeSelf == false)
+        {
+            burbujasDoradasArray[burbujasDoradasArrayIndice].transform.position = arrayVectores[random]; // Ponemos el enemigoAmor en una de las cuatro salidas
+
+            burbujasDoradasArray[burbujasDoradasArrayIndice].SetActive(true); // Activamos el enemigo
+        }
+
+        //movimiento
+
+        if (burbujasDoradasArray[burbujasDoradasArrayIndice].transform.position.Equals(arrayVectores[0]))
+        {
+            //Debug.Log("0");
+
+            burbujasDoradasArray[burbujasDoradasArrayIndice].GetComponent<Rigidbody2D>().AddForce(Vector3.right * burbujasDoradasVelocity);
+            burbujasDoradasArray[burbujasDoradasArrayIndice].GetComponent<Rigidbody2D>().AddForce(Vector3.down * burbujasDoradasVelocity);
+        }
+        else if (burbujasDoradasArray[burbujasDoradasArrayIndice].transform.position.Equals(arrayVectores[1]))
+        {
+            //Debug.Log("1");
+
+            burbujasDoradasArray[burbujasDoradasArrayIndice].GetComponent<Rigidbody2D>().AddForce(Vector3.left * burbujasDoradasVelocity);
+            burbujasDoradasArray[burbujasDoradasArrayIndice].GetComponent<Rigidbody2D>().AddForce(Vector3.down * burbujasDoradasVelocity);
+        }
+        else if (burbujasDoradasArray[burbujasDoradasArrayIndice].transform.position.Equals(arrayVectores[2]))
+        {
+            //Debug.Log("2");
+
+            burbujasDoradasArray[burbujasDoradasArrayIndice].GetComponent<Rigidbody2D>().AddForce(Vector3.right * burbujasDoradasVelocity);
+            burbujasDoradasArray[burbujasDoradasArrayIndice].GetComponent<Rigidbody2D>().AddForce(Vector3.up * burbujasDoradasVelocity);
+        }
+        else if (burbujasDoradasArray[burbujasDoradasArrayIndice].transform.position.Equals(arrayVectores[3]))
+        {
+            //Debug.Log("3");
+
+            burbujasDoradasArray[burbujasDoradasArrayIndice].GetComponent<Rigidbody2D>().AddForce(Vector3.left * burbujasDoradasVelocity);
+            burbujasDoradasArray[burbujasDoradasArrayIndice].GetComponent<Rigidbody2D>().AddForce(Vector3.up * burbujasDoradasVelocity);
         }
     }
 }
