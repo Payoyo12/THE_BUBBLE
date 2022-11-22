@@ -8,9 +8,9 @@ public class Pool : MonoBehaviour
 
     public GameObject burbujas;       // Referencia prefab a instanciar
     private GameObject[] burbujasArray;   // Array de objetos a reciclar (piscina de objetos)
-    private int burbujasArraySize = 100; // Tamanyo del array
+    private int burbujasArraySize = 30; // Tamanyo del array
     private int burbujasArrayIndice = -1;   // Indice de la posicion del array (indica la bala a activar)
-    private float burbujasVelocity = 60;
+    private float burbujasVelocity = 200;
 
     //vectores aleatorios
 
