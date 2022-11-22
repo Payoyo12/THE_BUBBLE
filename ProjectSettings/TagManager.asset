@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - pared
+  - burbuja
+  - burbujaDorada
+  - manager
   layers:
   - Default
   - TransparentFX

@@ -4,8 +4,18 @@ using UnityEngine;
 
 public class Burbujas : MonoBehaviour
 {
+    //vidas
+
     private int burbujaVida = 1;
     private int burbujaDoradaVida = 3;
+
+    //gameManager
+    private GameObject gameManager;
+
+    private void Awake()
+    {
+        gameManager = GameObject.FindGameObjectWithTag("manager");
+    }
 
     // Start is called before the first frame update
     private void Start()
@@ -44,6 +54,7 @@ public class Burbujas : MonoBehaviour
 
         if (burbujaVida == 0 || burbujaDoradaVida == 0)
         {
+            gameManager.GetComponent<GameManager>().puntuacionMaxima++;
             gameObject.SetActive(false);
             //Debug.Log("gg");
         }

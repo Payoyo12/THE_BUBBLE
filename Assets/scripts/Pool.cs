@@ -75,8 +75,8 @@ public class Pool : MonoBehaviour
             incrementadorDeTiempo = 0;
         }
 
-        randomAparicion = Random.Range(0, 10000);
-        //randomAparicion = Random.Range(0, 25);
+        //randomAparicion = Random.Range(0, 10000);
+        randomAparicion = Random.Range(0, 25);
 
         if (randomAparicion == 20)
         {
