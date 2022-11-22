@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
     public void StartButoonPlay()
     {
         incrementadorDeTiempo = 0;
-        temporizador = 5;
+        temporizador = 30;
         puntuacion = 0;
 
         pool.GetComponent<Pool>().burbujasFinales = false;
