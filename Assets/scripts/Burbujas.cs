@@ -52,9 +52,16 @@ public class Burbujas : MonoBehaviour
             burbujaDoradaVida--;
         }
 
-        if (burbujaVida == 0 || burbujaDoradaVida == 0)
+        if (burbujaVida == 0)
         {
             gameManager.GetComponent<GameManager>().puntuacionMaxima++;
+            gameObject.SetActive(false);
+            //Debug.Log("gg");
+        }
+
+        if (burbujaDoradaVida == 0)
+        {
+            gameManager.GetComponent<GameManager>().puntuacionMaxima += 3;
             gameObject.SetActive(false);
             //Debug.Log("gg");
         }

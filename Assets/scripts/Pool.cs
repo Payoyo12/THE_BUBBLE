@@ -18,6 +18,7 @@ public class Pool : MonoBehaviour
     private int burbujasDoradasArrayIndice = -1;   // Indice de la posicion del array (indica la bala a activar)
     private float burbujasDoradasVelocity = 200;
     private int randomAparicion;    //momento en el que aparecera la burbujaDorada
+
     //vectores aleatorios
 
     private int arrayVectoresSize = 4;
@@ -28,7 +29,8 @@ public class Pool : MonoBehaviour
 
     private float incrementadorDeTiempo = 0f;
 
-    //private float duracionDeRonda = 30f;
+    //fin de partida
+    public bool burbujasFinales = false;
 
     // Start is called before the first frame update
     private void Start()
@@ -66,21 +68,29 @@ public class Pool : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        random = Random.Range(0, 4);
-
-        incrementadorDeTiempo += Time.deltaTime;
-        if (incrementadorDeTiempo > 1)
+        if (burbujasFinales == true)
         {
-            burbujasActive();
-            incrementadorDeTiempo = 0;
+            Debug.Log("termino la partida");
+            desactivador();
         }
-
-        //randomAparicion = Random.Range(0, 10000);
-        randomAparicion = Random.Range(0, 25);
-
-        if (randomAparicion == 20)
+        else
         {
-            burbujasDoradasActive();
+            random = Random.Range(0, 4);
+
+            incrementadorDeTiempo += Time.deltaTime;
+            if (incrementadorDeTiempo > 1)
+            {
+                burbujasActive();
+                incrementadorDeTiempo = 0;
+            }
+
+            //randomAparicion = Random.Range(0, 10000);
+            randomAparicion = Random.Range(0, 25);
+
+            if (randomAparicion == 20)
+            {
+                burbujasDoradasActive();
+            }
         }
     }
 
@@ -181,6 +191,28 @@ public class Pool : MonoBehaviour
 
             burbujasDoradasArray[burbujasDoradasArrayIndice].GetComponent<Rigidbody2D>().AddForce(Vector3.left * burbujasDoradasVelocity);
             burbujasDoradasArray[burbujasDoradasArrayIndice].GetComponent<Rigidbody2D>().AddForce(Vector3.up * burbujasDoradasVelocity);
+        }
+    }
+
+    private void desactivador()
+    {
+        //burbujas
+        for (int i = 0; i < burbujasArraySize; i++)// Creamos todas las balas, las colocamos como hijas de este gameobject y las desactivamos
+        {
+            if (burbujasArray[burbujasArrayIndice].activeSelf == true)
+            {
+                burbujasArray[i].SetActive(false);
+                Debug.Log("burbuja");
+            }
+        }
+
+        for (int i = 0; i < burbujasDoradasArraySize; i++)// Creamos todas las balas, las colocamos como hijas de este gameobject y las desactivamos
+        {
+            if (burbujasDoradasArray[burbujasDoradasArrayIndice].activeSelf == true)
+            {
+                burbujasDoradasArray[i].SetActive(false);
+                Debug.Log("burbujaDorada");
+            }
         }
     }
 }
