@@ -76,6 +76,7 @@ public class Pool : MonoBehaviour
         }
 
         randomAparicion = Random.Range(0, 10000);
+        //randomAparicion = Random.Range(0, 25);
 
         if (randomAparicion == 20)
         {
