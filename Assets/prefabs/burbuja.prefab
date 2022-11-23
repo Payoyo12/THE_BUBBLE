@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -5010297109867755432}
   - component: {fileID: 3445551124386489159}
   - component: {fileID: -2981826800154260323}
+  - component: {fileID: 2828061385078508271}
   m_Layer: 0
   m_Name: burbuja
   m_TagString: burbuja
@@ -171,3 +172,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10243424abd5006458983b89a76dfcd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioBurbuja16: {fileID: 0}
+  audioBurbujaDorada: {fileID: 0}
+--- !u!95 &2828061385078508271
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777544723429595216}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 11baa804013fe9f4f9377e7bbd4d484e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

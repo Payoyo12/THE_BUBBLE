@@ -18,6 +18,10 @@ public class Burbujas : MonoBehaviour
     public GameObject audioBurbuja16;
     public GameObject audioBurbujaDorada;
 
+    //collider
+
+    private BoxCollider2D[] burbujaBoxCollider2D;
+
     private void Awake()
     {
         gameManager = GameObject.FindGameObjectWithTag("manager");
@@ -28,6 +32,7 @@ public class Burbujas : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        burbujaBoxCollider2D = gameObject.GetComponents<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -40,11 +45,15 @@ public class Burbujas : MonoBehaviour
         if (gameObject.tag.Equals("burbuja"))
         {
             burbujaVida = 1;
+            burbujaBoxCollider2D[0].enabled = true;
+            burbujaBoxCollider2D[1].enabled = true;
         }
 
         if (gameObject.tag.Equals("burbujaDorada"))
         {
             burbujaDoradaVida = 3;
+            burbujaBoxCollider2D[0].enabled = true;
+            burbujaBoxCollider2D[1].enabled = true;
         }
 
         audioBurbuja16.GetComponent<AudioSource>().Stop();
@@ -66,17 +75,30 @@ public class Burbujas : MonoBehaviour
         if (burbujaVida == 0)
         {
             audioBurbuja16.GetComponent<AudioSource>().Play();
+            gameObject.GetComponent<Animator>().Play("burbujaexplot16");
+            burbujaBoxCollider2D[0].enabled = false;
+            burbujaBoxCollider2D[1].enabled = false;
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
             gameManager.GetComponent<GameManager>().puntuacion++;
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
             //Debug.Log("gg");
         }
 
         if (burbujaDoradaVida == 0)
         {
             audioBurbujaDorada.GetComponent<AudioSource>().Play();
+            gameObject.GetComponent<Animator>().Play("burbujaexplot16");
+            burbujaBoxCollider2D[0].enabled = false;
+            burbujaBoxCollider2D[1].enabled = false;
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
             gameManager.GetComponent<GameManager>().puntuacion += 3;
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
             //Debug.Log("gg");
         }
+    }
+
+    public void DestroyBubble()
+    {
+        gameObject.SetActive(false);
     }
 }
