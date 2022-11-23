@@ -10,11 +10,19 @@ public class Burbujas : MonoBehaviour
     private int burbujaDoradaVida = 3;
 
     //gameManager
+
     private GameObject gameManager;
+
+    //audio
+
+    public GameObject audioBurbuja16;
+    public GameObject audioBurbujaDorada;
 
     private void Awake()
     {
         gameManager = GameObject.FindGameObjectWithTag("manager");
+        audioBurbuja16 = GameObject.FindGameObjectWithTag("burbujaexplot16");
+        audioBurbujaDorada = GameObject.FindGameObjectWithTag("burbujaexplotdorada");
     }
 
     // Start is called before the first frame update
@@ -38,6 +46,9 @@ public class Burbujas : MonoBehaviour
         {
             burbujaDoradaVida = 3;
         }
+
+        audioBurbuja16.GetComponent<AudioSource>().Stop();
+        audioBurbujaDorada.GetComponent<AudioSource>().Stop();
     }
 
     private void OnMouseDown()
@@ -54,6 +65,7 @@ public class Burbujas : MonoBehaviour
 
         if (burbujaVida == 0)
         {
+            audioBurbuja16.GetComponent<AudioSource>().Play();
             gameManager.GetComponent<GameManager>().puntuacion++;
             gameObject.SetActive(false);
             //Debug.Log("gg");
@@ -61,6 +73,7 @@ public class Burbujas : MonoBehaviour
 
         if (burbujaDoradaVida == 0)
         {
+            audioBurbujaDorada.GetComponent<AudioSource>().Play();
             gameManager.GetComponent<GameManager>().puntuacion += 3;
             gameObject.SetActive(false);
             //Debug.Log("gg");

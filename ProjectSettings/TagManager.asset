@@ -8,6 +8,8 @@ TagManager:
   - burbuja
   - burbujaDorada
   - manager
+  - burbujaexplot16
+  - burbujaexplotdorada
   layers:
   - Default
   - TransparentFX

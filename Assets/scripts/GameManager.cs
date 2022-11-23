@@ -33,13 +33,14 @@ public class GameManager : MonoBehaviour
     {
         MostrarMenuPrincipal();
 
+        puntuacionMaxima = PlayerPrefs.GetInt("score", 0); // ("nombreClave", valorPorDefectoSiNoExisteLaClave)
+
         //canvas
 
         TMPtextTemporizador = textTemporizador.GetComponent<TextMeshProUGUI>();
         TMPtextPuntuacion = textPuntuacion.GetComponent<TextMeshProUGUI>();
         TMPtextPuntuacionMaxima = textPuntuacionMaxima.GetComponent<TextMeshProUGUI>();
         TMPtextPuntuacionMaxima.text = "RECORD: " + puntuacionMaxima;
-        puntuacionMaxima = PlayerPrefs.GetInt("score", 0); // ("nombreClave", valorPorDefectoSiNoExisteLaClave)
 
         //puntuacion
         puntuacion = 0;
@@ -67,7 +68,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("score", puntuacionMaxima); // ("nombreClave", valorAGrabar)
         PlayerPrefs.Save(); // Esto se llama automaticamente al cerrar Unity (si no crashea)
         //Debug.Log(puntuacionMaxima);
-        TMPtextPuntuacion.text = "PUNTUACION: : " + puntuacion;
+        TMPtextPuntuacion.text = "PUNTUACION: " + puntuacion;
         TMPtextTemporizador.text = temporizador + "s";
 
         if (temporizador <= 0)
