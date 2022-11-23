@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public int puntuacion;
     private int puntuacionMaxima;
 
-    private int temporizador = 30;
+    private int temporizador = 60;
 
     // Variables para el temporizador
 
@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
         //puntuacion
         puntuacion = 0;
         //temporizador
-        temporizador = 30;
+        temporizador = 60;
         //incrementador de tiempo
         incrementadorDeTiempo = 500;
 
@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
     public void StartButoonPlay()
     {
         incrementadorDeTiempo = 0;
-        temporizador = 30;
+        temporizador = 60;
         puntuacion = 0;
 
         pool.GetComponent<Pool>().burbujasFinales = false;

@@ -52,7 +52,7 @@ public class Pool : MonoBehaviour
             burbujasDoradasArray[i].SetActive(false);
         }
 
-        randomAparicion = Random.Range(0, 100);
+        randomAparicion = Random.Range(0, 10000);
 
         ////vectores aleatorios
         arrayVectores = new Vector3[arrayVectoresSize]; // Creamos la array con un tamaño igual al de la variable int primera
@@ -78,7 +78,7 @@ public class Pool : MonoBehaviour
             random = Random.Range(0, 4);
 
             incrementadorDeTiempo += Time.deltaTime;
-            if (incrementadorDeTiempo > 1)
+            if (incrementadorDeTiempo > 0.5f)
             {
                 burbujasActive();
                 incrementadorDeTiempo = 0;
