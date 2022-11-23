@@ -19,8 +19,8 @@ public class Astilla : MonoBehaviour
     {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = Camera.main.transform.position.z + Camera.main.nearClipPlane;
-        mousePos.x += 1f;
-        mousePos.y += 0.7f;
+        mousePos.x += 0.8f;
+        mousePos.y += 0.5f;
         transform.position = mousePos;
         //transform.position = new Vector3(transform.position.x, transform.position.y, -1);
     }
