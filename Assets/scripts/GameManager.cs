@@ -95,6 +95,7 @@ public class GameManager : MonoBehaviour
         puntuacion = 0;
 
         pool.GetComponent<Pool>().burbujasFinales = false;
+
         OcultarMenuPrincipal();
     }
 
