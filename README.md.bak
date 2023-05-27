@@ -1,10 +1,7 @@
 
-# THE BUBBLE #
+# Las Burbujitas #
 
-El juego consiste en reventar el mayor número de pompas en 60s.
-Hay dos tipos de burbujas azules y amarillas.
-Las azules se revientan de un toque otorgando un punto y 
-las amarillas de tres toques otorgando tres puntos.
+Inspirado en la cancion de Los Mojinos Escozíos - Las burbujitas
 
 ### carateristicas del proyecto ###
 
@@ -16,16 +13,14 @@ las amarillas de tres toques otorgando tres puntos.
 * artista musical: SinCopyrightMusic
 * efectos de sonido: Santiago Ojeda Arenas
 * Herramienta utilizada para los Sprite: LibreSprite
-* Editor de texto: visual studio 2019
 
 ### Controles e Instruciones ###
 
 * Apuntar: Raton
-* Diparar: Click Izquierdo
+* Diseñadorisparar: Click Izquierdo
 * Objetibo: Sacar la mayor puntuación
 
 ### Enlaces ###
 
-* unity hub: https://unity.com/download
-* liberSprite: https://github.com/LibreSprite/LibreSprite/releases
 * musica: https://www.youtube.com/watch?v=i46AjtQ1ghI
+* Otros ;) https://theuselessweb.com/
