@@ -36,8 +36,8 @@ public class Pool : MonoBehaviour
     private void Start()
     {
         //burbujas
-        burbujasArray = new GameObject[burbujasArraySize]; // Creamos la array con un tamaño igual al de la variable int primera
-        for (int i = 0; i < burbujasArraySize; i++)// Creamos todas las balas, las colocamos como hijas de este gameobject y las desactivamos
+        burbujasArray = new GameObject[burbujasArraySize]; // Creamos el array con un tamaño igual al de la variable int burbujasArraySize
+        for (int i = 0; i < burbujasArraySize; i++)// Creamos todas las burbujas, las colocamos como hijas de este gameobject y las desactivamos
         {
             burbujasArray[i] = Instantiate(burbujas, transform.position, Quaternion.identity);
             burbujasArray[i].transform.parent = gameObject.transform;
@@ -96,7 +96,7 @@ public class Pool : MonoBehaviour
 
     public void burbujasActive()
     {
-        burbujasArrayIndice++; // Tras diparar pasamos a la siguiente bala
+        burbujasArrayIndice++; // Tras diparar pasamos a la siguiente burbuja
 
         // Si nos salimos del rango del array, volvemos a cero.
         if (burbujasArrayIndice >= burbujasArraySize)
@@ -106,9 +106,9 @@ public class Pool : MonoBehaviour
 
         if (burbujasArray[burbujasArrayIndice].activeSelf == false)
         {
-            burbujasArray[burbujasArrayIndice].transform.position = arrayVectores[random]; // Ponemos el enemigoAmor en una de las cuatro salidas
+            burbujasArray[burbujasArrayIndice].transform.position = arrayVectores[random]; // Ponemos la burbuja en una de las cuatro salidas
 
-            burbujasArray[burbujasArrayIndice].SetActive(true); // Activamos el enemigo
+            burbujasArray[burbujasArrayIndice].SetActive(true); // Activamos la burbuja
         }
 
         //movimiento
@@ -143,11 +143,10 @@ public class Pool : MonoBehaviour
         }
     }
 
-    //metodo movimiento
 
     public void burbujasDoradasActive()
     {
-        burbujasDoradasArrayIndice++; // Tras diparar pasamos a la siguiente bala
+        burbujasDoradasArrayIndice++; // Tras diparar pasamos a la siguiente burbuja
 
         // Si nos salimos del rango del array, volvemos a cero.
         if (burbujasDoradasArrayIndice >= burbujasDoradasArraySize)
@@ -157,7 +156,7 @@ public class Pool : MonoBehaviour
 
         if (burbujasDoradasArray[burbujasDoradasArrayIndice].activeSelf == false)
         {
-            burbujasDoradasArray[burbujasDoradasArrayIndice].transform.position = arrayVectores[random]; // Ponemos el enemigoAmor en una de las cuatro salidas
+            burbujasDoradasArray[burbujasDoradasArrayIndice].transform.position = arrayVectores[random]; // Ponemos la burbujaDorada en una de las cuatro salidas
 
             burbujasDoradasArray[burbujasDoradasArrayIndice].SetActive(true); // Activamos el enemigo
         }
@@ -197,22 +196,22 @@ public class Pool : MonoBehaviour
     private void desactivador()
     {
         //burbujas
-        for (int i = 0; i < burbujasArraySize; i++)// Creamos todas las balas, las colocamos como hijas de este gameobject y las desactivamos
+        for (int i = 0; i < burbujasArraySize; i++)
         {
-            if (burbujasArray[burbujasArrayIndice].activeSelf == true)
-            {
+            //if (burbujasArray[burbujasArrayIndice].activeSelf == true)
+            //{
                 burbujasArray[i].SetActive(false);
                 Debug.Log("burbuja");
-            }
+            //}
         }
 
-        for (int i = 0; i < burbujasDoradasArraySize; i++)// Creamos todas las balas, las colocamos como hijas de este gameobject y las desactivamos
+        for (int i = 0; i < burbujasDoradasArraySize; i++)
         {
-            if (burbujasDoradasArray[burbujasDoradasArrayIndice].activeSelf == true)
-            {
+           // if (burbujasDoradasArray[burbujasDoradasArrayIndice].activeSelf == true)
+            //{
                 burbujasDoradasArray[i].SetActive(false);
                 Debug.Log("burbujaDorada");
-            }
+            //}
         }
     }
 }

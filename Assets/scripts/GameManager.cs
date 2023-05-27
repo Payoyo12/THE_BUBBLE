@@ -13,10 +13,10 @@ public class GameManager : MonoBehaviour
     public GameObject butoonPlay;
     public GameObject butoonExit;
     private TextMeshProUGUI TMPtextPuntuacion;
-    private TextMeshProUGUI TMPtextPuntuacionMaxima;
+    public TextMeshProUGUI TMPtextPuntuacionMaxima;
     private TextMeshProUGUI TMPtextTemporizador;
     public int puntuacion;
-    private int puntuacionMaxima;
+    public int puntuacionMaxima;
 
     private int temporizador = 60;
 

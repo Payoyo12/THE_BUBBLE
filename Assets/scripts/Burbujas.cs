@@ -80,8 +80,7 @@ public class Burbujas : MonoBehaviour
             burbujaBoxCollider2D[1].enabled = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
             gameManager.GetComponent<GameManager>().puntuacion++;
-            //gameObject.SetActive(false);
-            //Debug.Log("gg");
+            
         }
 
         if (burbujaDoradaVida == 0)
@@ -92,11 +91,10 @@ public class Burbujas : MonoBehaviour
             burbujaBoxCollider2D[1].enabled = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
             gameManager.GetComponent<GameManager>().puntuacion += 3;
-            //gameObject.SetActive(false);
-            //Debug.Log("gg");
+            
         }
     }
-
+    
     public void DestroyBubble()
     {
         gameObject.SetActive(false);
