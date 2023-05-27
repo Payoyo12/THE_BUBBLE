@@ -1,0 +1,24 @@
+codigos de respuesta:
+	200 : Conectado correctamente
+	201 : Usuario creado correctamente
+	202 : El usuario existe en el sistemaEl usuario existe en el sistema
+	203 : El usuario NO existe en el sistema
+	204 : El usuario o la contraseña son incorrectos
+	205 : Inicio de sesion correcto
+	206 : usuario editado con exito
+	207 : sentencia realizada con exito
+
+	400 : Error al conectar con el servidor
+	401 : Error intentando crear el usuario
+	402 : Faltan datos para ejecutar la accion solicitada
+	403 : Ya existe un usuario registrado con ese nombre
+
+
+usos de las funcionalidades
+
+	check()
+	reg_usuario(user, pass, score)
+	verificar_user(user)
+	login(user, pass)
+	editar_usuario(user, pass, pass2, score)
+	return_score(user, pass)
