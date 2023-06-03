@@ -611,4 +611,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/Santi/Documents/UnityProyects/practica-final/THE BUBBLE/Builds/Android/final/TheBubble.apk
+  playerPath: C:/Users/Santi/Documents/UnityProyects/practica-final/THE BUBBLE/Builds/Android/TheBubble.apk

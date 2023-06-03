@@ -611,5 +611,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/Santi/Documents/UnityProyects/PROYECTOS  curso videojuegos
-    presencial/practica-final/Builds/Windows/final/TheBubble.exe
+  playerPath: C:/Users/Santi/Documents/UnityProyects/practica-final/THE BUBBLE/Builds/Windows/TheBubble/TheBubble.exe
