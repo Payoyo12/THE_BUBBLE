@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject textPuntuacion;
     public GameObject textPuntuacionMaxima;
     public GameObject textTemporizador;
+    public GameObject textTitulo;
     public GameObject butoonPlay;
     public GameObject butoonExit;
     private TextMeshProUGUI TMPtextPuntuacion;
@@ -110,6 +111,7 @@ public class GameManager : MonoBehaviour
         textPuntuacion.SetActive(true);
         textPuntuacionMaxima.SetActive(false);
         textTemporizador.SetActive(true);
+        textTitulo.SetActive(false);
         butoonPlay.SetActive(false);
         butoonExit.SetActive(false);
     }
@@ -119,6 +121,7 @@ public class GameManager : MonoBehaviour
         textPuntuacion.SetActive(false);
         textPuntuacionMaxima.SetActive(true);
         textTemporizador.SetActive(false);
+        textTitulo.SetActive(true);
         butoonPlay.SetActive(true);
         butoonExit.SetActive(true);
     }

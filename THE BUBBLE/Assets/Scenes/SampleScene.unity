@@ -156,6 +156,7 @@ MonoBehaviour:
   textPuntuacion: {fileID: 1328379998}
   textPuntuacionMaxima: {fileID: 1200616822}
   textTemporizador: {fileID: 1856566681}
+  textTitulo: {fileID: 597638628}
   butoonPlay: {fileID: 1821679376}
   butoonExit: {fileID: 728924676}
   TMPtextPuntuacionMaxima: {fileID: 0}
