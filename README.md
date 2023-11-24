@@ -1,4 +1,3 @@
-
 # THE BUBBLE #
 
 El juego consiste en reventar el mayor número de pompas en 60s.
@@ -29,3 +28,6 @@ las amarillas de tres toques otorgando tres puntos.
 * unity hub: https://unity.com/download
 * liberSprite: https://github.com/LibreSprite/LibreSprite/releases
 * musica: https://www.youtube.com/watch?v=i46AjtQ1ghI
+=======
+# THE_BUBBLE
+Proyecto fin de curso
