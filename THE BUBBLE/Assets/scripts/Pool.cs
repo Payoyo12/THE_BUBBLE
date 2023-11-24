@@ -70,7 +70,7 @@ public class Pool : MonoBehaviour
     {
         if (burbujasFinales == true)
         {
-            Debug.Log("termino la partida");
+            Debug.Log("Desactivando burbujas");
             desactivador();
         }
         else
@@ -201,7 +201,7 @@ public class Pool : MonoBehaviour
             //if (burbujasArray[burbujasArrayIndice].activeSelf == true)
             //{
                 burbujasArray[i].SetActive(false);
-                Debug.Log("burbuja");
+                Debug.Log("burbuja Desactivada");
             //}
         }
 
@@ -210,7 +210,7 @@ public class Pool : MonoBehaviour
            // if (burbujasDoradasArray[burbujasDoradasArrayIndice].activeSelf == true)
             //{
                 burbujasDoradasArray[i].SetActive(false);
-                Debug.Log("burbujaDorada");
+                Debug.Log("burbujaDorada Desactivada");
             //}
         }
     }
