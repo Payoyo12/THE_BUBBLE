@@ -11,13 +11,15 @@ public class GameMScene1 : MonoBehaviour
     private float Contador;
     private bool Temporizador;
 
-    public ScreenActionsScene1 ScreenActionsScene1;
-    public Pool Pool;
-
-
     //datos de la partida
     public Datos Datos;
     public int PuntuacionActual;
+    public int BurbujasAzules;
+    public int BurbujasDoradas;
+
+    //otros datos
+    public ScreenActionsScene1 ScreenActionsScene1;
+    public Pool Pool;
 
     private void Awake()
     {
@@ -27,7 +29,6 @@ public class GameMScene1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Datos = GameObject.FindGameObjectWithTag("Datos").GetComponent<Datos>();
         ReestablecerValores();
 
 
@@ -52,6 +53,13 @@ public class GameMScene1 : MonoBehaviour
                 }
 
                 ScreenActionsScene1.PantallaResultado();
+
+                Datos.ActualizarNumPartidasJugadas1J();
+                Datos.ActualizarNumPuntosTotales1J(PuntuacionActual);
+                Datos.ActualizarNumBurbujasAzules1J(BurbujasAzules);
+                Datos.ActualizarNumBurbujasDoradas1J(BurbujasDoradas);
+                Datos.ActualizarNumBurbujasTotales1J(BurbujasAzules+BurbujasDoradas);
+
                 ReestablecerValores();
                 
 
@@ -63,7 +71,6 @@ public class GameMScene1 : MonoBehaviour
 
     public void ComenzarPartida1J()
     {
-
         Temporizador = true;
         Pool.burbujasFinales = false;
 
@@ -75,6 +82,8 @@ public class GameMScene1 : MonoBehaviour
         Contador = 10;
         Comenzando.text = Contador.ToString();
         PuntuacionActual = 0;
+        BurbujasAzules = 0;
+        BurbujasDoradas = 0;
         Pool.burbujasFinales = true;
     }
 

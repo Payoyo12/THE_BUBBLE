@@ -11,6 +11,8 @@ TagManager:
   - burbujaexplot16
   - burbujaexplotdorada
   - Datos
+  - BDscene1
+  - BDscene2
   layers:
   - Default
   - TransparentFX

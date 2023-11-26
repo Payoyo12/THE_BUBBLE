@@ -18,12 +18,15 @@ public class BDscene0 : MonoBehaviour
     public Datos Datos;
     public Boolean ServidorOcupado;
 
+    private void Awake()
+    {
+        // Define la cadena de conexión con la URL de la base de datos en línea
+        connectionString = "server=db4free.net;uid=monstercraft12;pwd=monstercraft12;database=thebubble;";
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        // Define la cadena de conexión con la URL de la base de datos en línea
-        connectionString = "server=db4free.net;uid=monstercraft12;pwd=monstercraft12;database=thebubble;";
         ServidorOcupado = false;
     }
 
@@ -190,6 +193,7 @@ public class BDscene0 : MonoBehaviour
                         //Datos.Usuario = reader["Nombre"].ToString();
                         Datos.Usuario = Convert.ToString(reader["Nombre"]);
                         Datos.NumPartidasJugadas1J = Convert.ToInt32(reader["NumPartidasJugadas"]);
+                        Datos.NumPuntosTotales1J = Convert.ToInt32(reader["NumPuntosTotales"]);
                         Datos.PuntuacionMax1J = Convert.ToInt32(reader["PuntuacionMax"]);
                         Datos.NumBurbujasTotales1J = Convert.ToInt32(reader["NumBurbujasTotales"]);
                         Datos.NumBurbujasAzules1J = Convert.ToInt32(reader["NumBurbujasAzules"]);
@@ -281,8 +285,8 @@ public class BDscene0 : MonoBehaviour
             connection.Open();
 
 
-            string sqlQuery = String.Format("INSERT INTO `estadisticas1j`(`Nombre`, `NumPartidasJugadas`, `PuntuacionMax`, `NumBurbujasTotales`, `NumBurbujasAzules`, `NumBurbujasDoradas`) " +
-            "VALUES (@Usuario,1,2,3,4,5)");
+            string sqlQuery = String.Format("INSERT INTO `estadisticas1j`(`Nombre`, `NumPartidasJugadas`, `NumPuntosTotales`, `PuntuacionMax`, `NumBurbujasTotales`, `NumBurbujasAzules`, `NumBurbujasDoradas`) " +
+            "VALUES (@Usuario,0,0,0,0,0,0)");
 
             using (MySqlCommand dbCmd = new MySqlCommand(sqlQuery, connection))
             {
@@ -297,8 +301,9 @@ public class BDscene0 : MonoBehaviour
                 }
                 else
                 {
-                    Manager.DesactivarPantallaCarga();
                     Errores.text = "Error al generar datos1J. Intentalo mas tarde";
+                    Manager.DesactivarPantallaCarga();
+                    BorrarUsuario();
                 }
             }
         }
@@ -330,13 +335,43 @@ public class BDscene0 : MonoBehaviour
     //            }
     //            else
     //            {
-    //                Manager.DesactivarPantallaCarga();
     //                Errores.text = "Error al generar datos2J. Intentalo mas tarde";
+    //                Manager.DesactivarPantallaCarga();
+    //                //BorrarUsuario();
     //            }
     //        }
     //    }
     //}
+    private void BorrarUsuario()
+    {
+        Errores.text = "Borrando usuario";
+        using (MySqlConnection connection = new MySqlConnection(connectionString))
+        {
+            connection.Open();
 
+
+            string sqlQuery = String.Format("DELETE FROM `usuarios` WHERE Nombre = @Usuario");
+
+            using (MySqlCommand dbCmd = new MySqlCommand(sqlQuery, connection))
+            {
+
+                dbCmd.Parameters.AddWithValue("@Usuario", Usuario.text);
+
+                int rowsAffected = dbCmd.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                {
+                    Errores.text = "Usuario borrado correctamente";
+                }
+                else
+                {
+                    Errores.text = "Error al Borrar usuario";
+                    Manager.DesactivarPantallaCarga();
+                    //BorrarUsuario(); proximamente
+                }
+            }
+        }
+    }
 
 }
 

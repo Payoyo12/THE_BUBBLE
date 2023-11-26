@@ -9,15 +9,13 @@ using UnityEngine;
 public class Datos : MonoBehaviour
 {
     public static Datos Instance;
-
-
-    // Cadena de conexión a la base de datos SQLite en línea
-    //private string connectionString;
+    public BDscene1 BDscene1;
 
     //datos
     public string Usuario;
     //1J
     public int NumPartidasJugadas1J;
+    public int NumPuntosTotales1J;
     public int PuntuacionMax1J;
     public int NumBurbujasTotales1J;
     public int NumBurbujasAzules1J;
@@ -36,31 +34,64 @@ public class Datos : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        // Define la cadena de conexión con la URL de la base de datos en línea
-        //connectionString = "server=db4free.net;uid=monstercraft12;pwd=monstercraft12;database=thebubble;";
+        
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        BDscene1 = GameObject.FindGameObjectWithTag("BDscene1").GetComponent<BDscene1>();
 
 
 
     }
+
+    //modo 1J
+    public void ActualizarNumPartidasJugadas1J()
+    {
+        NumPartidasJugadas1J++;
+        StartCoroutine(BDscene1.ActualizarNumPartidasJugadas());
+    }
+    public void ActualizarNumPuntosTotales1J(int NuevaPuntuacion)
+    {
+        NumPuntosTotales1J += NuevaPuntuacion;
+        StartCoroutine(BDscene1.ActualizarNumPuntosTotales());
+    }
+
     public void ActualizarPuntuacionMaxima1J(int NuevaPuntuacion)
     {
         PuntuacionMax1J = NuevaPuntuacion;
-        Debug.Log("Puntuacion Maxima actualizada = " + PuntuacionMax1J);
-        //UPDATE PuntuacionMaxima1J
+        StartCoroutine(BDscene1.ActualizarPuntuacionMaxima());
     }
 
+    public void ActualizarNumBurbujasTotales1J(int NuevaPuntuacion)
+    {
+        NumBurbujasTotales1J += NuevaPuntuacion;
+        StartCoroutine(BDscene1.ActualizarNumBurbujasTotales());
+    }
+    public void ActualizarNumBurbujasAzules1J(int NuevaPuntuacion)
+    {
+        NumBurbujasAzules1J += NuevaPuntuacion;
+        StartCoroutine(BDscene1.ActualizarNumBurbujasAzules());
+    }
+    public void ActualizarNumBurbujasDoradas1J(int NuevaPuntuacion)
+    {
+        NumBurbujasDoradas1J += NuevaPuntuacion;
+        StartCoroutine(BDscene1.ActualizarNumBurbujasDoradas());
+    }
 
+    //modo 2J
+
+    //Proximamente
 
 
 }

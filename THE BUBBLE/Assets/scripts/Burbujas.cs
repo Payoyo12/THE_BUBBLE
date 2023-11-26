@@ -81,6 +81,7 @@ public class Burbujas : MonoBehaviour
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
             //gameManager.GetComponent<GameManager>().puntuacion++;
             gameManager.GetComponent<GameMScene1>().PuntuacionActual++;
+            gameManager.GetComponent<GameMScene1>().BurbujasAzules++;
 
         }
 
@@ -93,6 +94,7 @@ public class Burbujas : MonoBehaviour
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
             //gameManager.GetComponent<GameManager>().puntuacion += 3;
             gameManager.GetComponent<GameMScene1>().PuntuacionActual +=3;
+            gameManager.GetComponent<GameMScene1>().BurbujasDoradas++;
 
         }
     }

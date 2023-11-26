@@ -14,12 +14,15 @@ public class ScreenActionsScene0 : MonoBehaviour
     public TextMeshProUGUI Titulo;
     public GameObject PJugadores;
     public GameObject PEstadisticas;
+    public TextMeshProUGUI Estadisticas1j;
     public GameObject PLogros;
     public GameObject PInformacion;
     public GameObject PCarga;
-    
 
+    public Datos Datos;
     public BDscene0 BDscene0;
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +44,8 @@ public class ScreenActionsScene0 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Datos = GameObject.FindGameObjectWithTag("Datos").GetComponent<Datos>();
+
     }
 
     public void PantallaInicio()
@@ -90,6 +94,14 @@ public class ScreenActionsScene0 : MonoBehaviour
 
     public void PantallaEstadisticas()
     {
+
+        Estadisticas1j.text = "|    " + Datos.NumPartidasJugadas1J +
+                            "\n|    " + Datos.NumPuntosTotales1J +
+                            "\n|    " + Datos.PuntuacionMax1J +
+                            "\n|    " + Datos.NumBurbujasTotales1J +
+                            "\n|    " + Datos.NumBurbujasAzules1J +
+                            "\n|    " + Datos.NumBurbujasDoradas1J;
+
         PInicio.SetActive(false);
         PLogReg.SetActive(false);
         PJugadores.SetActive(false);

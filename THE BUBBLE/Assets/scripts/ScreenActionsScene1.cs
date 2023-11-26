@@ -118,7 +118,6 @@ public class ScreenActionsScene1 : MonoBehaviour
         Temporizador = false;
         Contador = 3;
         Comenzando.text = Contador.ToString();
-        
 
     }
 

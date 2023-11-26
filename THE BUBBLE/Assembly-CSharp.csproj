@@ -60,6 +60,7 @@
     <Compile Include="Assets\scripts\web\Login.cs" />
     <Compile Include="Assets\scripts\web\Servidor.cs" />
     <Compile Include="Assets\scripts\Burbujas.cs" />
+    <Compile Include="Assets\scripts\BDscene1.cs" />
     <Compile Include="Assets\scripts\Pool.cs" />
     <Compile Include="Assets\scripts\web\Register.cs" />
     <Compile Include="Assets\scripts\Datos.cs" />
